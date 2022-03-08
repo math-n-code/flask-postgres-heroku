@@ -7,4 +7,3 @@ Werkzeug==0.9.6
 flask-heroku==0.1.9
 gunicorn==19.0.0
 itsdangerous==0.24
-wsgiref==0.1.2
