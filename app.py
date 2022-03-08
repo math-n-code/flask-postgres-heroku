@@ -32,6 +32,7 @@ def prereg():
     if request.method == 'POST':
         email = request.form['email']
         # Check that email does not already exist (not a great query, but works)
+        return "Checked"
         if not db.session.query(User).filter(User.email == email).count():
             reg = User(email)
             db.session.add(reg)
