@@ -32,9 +32,11 @@ def prereg():
     if request.method == 'POST':
         email = request.form['email']
         # Check that email does not already exist (not a great query, but works)
-        return "Checked"
+        
         if not db.session.query(User).filter(User.email == email).count():
+            return "Checked0"
             reg = User(email)
+            return "Checked1"
             db.session.add(reg)
             db.session.commit()
             return render_template('success.html')
