@@ -33,6 +33,7 @@ def prereg():
         email = request.form['email']
         try:
             reg = User(email)
+            return "Checked0"
             db.session.add(reg)
             db.session.commit()
             return render_template('success.html')
