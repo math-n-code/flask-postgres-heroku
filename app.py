@@ -31,15 +31,13 @@ def prereg():
     email = None
     if request.method == 'POST':
         email = request.form['email']
-        # Check that email does not already exist (not a great query, but works)
-        
-        if not db.session.query(User).filter(User.email == email).count():
-            return "Checked0"
+        try:
             reg = User(email)
-            return "Checked1"
             db.session.add(reg)
             db.session.commit()
             return render_template('success.html')
+        except Exception as e:
+            return e
     return render_template('index.html')
 
 if __name__ == '__main__':
