@@ -33,8 +33,9 @@ def prereg():
         email = request.form['email']
         try:
             reg = User(email)
-            return "Checked0"
+            
             db.session.add(reg)
+            return "Checked1"
             db.session.commit()
             return render_template('success.html')
         except Exception as e:
